@@ -3,21 +3,21 @@ services:
   - docker
 
 before_install:
-  - docker build -t gregmirabito/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t gmirabito/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run -e CI=true gregmirabito/react-test npm test
+  - docker run -e CI=true gmirabito/react-test npm test
 
 after_success:
-  - docker build -t gregmirabito/multi-client ./client
-  - docker build -t gregmirabito/multi-nginx ./nginx
-  - docker build -t gregmirabito/multi-server ./server
-  - docker build -t gregmirabito/multi-worker ./worker
+  - docker build -t gmirabito/multi-client ./client
+  - docker build -t gmirabito/multi-nginx ./nginx
+  - docker build -t gmirabito/multi-server ./server
+  - docker build -t gmirabito/multi-worker ./worker
   #login to docker cli
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # push images to docker hub
-  - docker push gregmirabito/multi-client
-  - docker push gregmirabito/multi-nginx
-  - docker push gregmirabito/multi-server
-  - docker push gregmirabito/multi-worker
+  - docker push gmirabito/multi-client
+  - docker push gmirabito/multi-nginx
+  - docker push gmirabito/multi-server
+  - docker push gmirabito/multi-worker
 
