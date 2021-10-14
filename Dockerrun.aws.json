@@ -1,6 +1,6 @@
 {
     "AWSEBDockerrunVersion": 2,
-    "containderDefinitions": [
+    "containerDefinitions": [
         {
             "name": "client",
             "image": "gmirabito/multi-client",
